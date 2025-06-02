@@ -4,4 +4,4 @@
 - Nodes 基础监控
 - JVM 监控
 - Artifactory Metrics 监控
-- Artifactory 连接数监控
+- Artifactory Tomcat 连接数监控
