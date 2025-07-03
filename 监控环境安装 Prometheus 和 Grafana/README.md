@@ -70,6 +70,7 @@ git clone https://github.com/gyzong1/MonitoringTools.git
 ```
 解压 jf_monitoring.tgz:
 ```bash
+cd /opt/jf_monitoring/MonitoringTools/packages/
 tar zxf jf_monitoring.tgz && cd jf_monitoring && chmod +x start.sh
 ```
 安装 jf_monitoring:
