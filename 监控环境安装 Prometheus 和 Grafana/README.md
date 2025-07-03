@@ -60,9 +60,13 @@ curl http://198.19.249.230:30013/metrics
 
 
 ## 服务端配置（任意一台空闲服务器）
+创建安装目录:
+```bash
+mkdir /opt/jf_monitoring/ && cd /opt/jf_monitoring/
+```
 下载 jf_monitoring.tgz:
 ```bash
-wget 
+git clone https://github.com/gyzong1/MonitoringTools.git
 ```
 解压 jf_monitoring.tgz:
 ```bash
