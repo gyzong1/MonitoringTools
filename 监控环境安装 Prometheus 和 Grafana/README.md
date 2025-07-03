@@ -17,7 +17,7 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_e
 $ tar zxf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64
 $ nohup ./node_exporter &
 ```
-测试访问:
+测试:
 ```bash
 curl http://127.0.0.1:9100/metrics
 ```
@@ -53,6 +53,11 @@ shared:
 ```bash
 systemctl restart artifactory
 ```
+测试:
+```bash
+curl http://198.19.249.230:30013/metrics
+```
+
 
 ## 服务端配置（任意一台空闲服务器）
 解压 jf_monitoring.tgz:
