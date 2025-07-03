@@ -1,5 +1,6 @@
 # JFrog Artifactory 监控
 ## 客户端配置（在所有Artifactory节点上）
+### 部署 node_exporter
 创建安装目录:
 ```bash
 mkdir /opt/jf_monitoring_node/ && cd /opt/jf_monitoring_node/
@@ -20,19 +21,39 @@ $ nohup ./node_exporter &
 ```bash
 curl http://127.0.0.1:9100/metrics
 ```
-配置Artifactory（路径根据实际目录填写）
+### 部署 jmx_exporter
+下载 jmx_exporter:
+```bash
+cd /opt/jf_monitoring_node/
+wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.17.2/jmx_prometheus_javaagent-0.17.2.jar
+```
+创建 jmx_exporter 配置:
+```bash
+vim /opt/jf_monitoring_node/jmx_config.yaml
+添加以下内容:
+---
+lowercaseOutputLabelNames: true
+lowercaseOutputName: true
+
+rules:
+- pattern: ".*"
+```
+
+### Artifactory 配置添加 jmx（路径根据实际目录填写）
 编辑 artifactory.default:
 ```bash
-vim $ARTIFACTORY_HOME/app/bin/artifactory.default
+vim $ARTIFACTORY_HOME/var/etc/system.yaml
 ```
 添加客户端配置:
-```sh
-export JAVA_OPTS="-javaagent:/root/jf_monitoring_node/jmx_prometheus_javaagent-0.17.2.jar=30013:/root/jf_monitoring_node/jmx_config.yaml"
+```bash
+shared:
+   extraJavaOpts: "-Xms512m -Xmx4g -javaagent:/opt/jf_monitoring_node/jmx_prometheus_javaagent-0.17.2.jar=30013:/opt/jf_monitoring_node/jmx_config.yaml
 ```
-启动 Artifactory:
+重启 Artifactory:
 ```bash
 systemctl restart artifactory
 ```
+
 ## 服务端配置（任意一台空闲服务器）
 解压 jf_monitoring.tgz:
 ```bash
