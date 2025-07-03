@@ -137,30 +137,58 @@ echo -e "\033[33;1mGrafana's url: \033[32;1mhttp://${localIp}:3000\033[0m"
 echo -e "\033[33;1mGrafana's account/password: \033[32;1madmin/admin\033[0m"
 }
 
-read -p "Do you need to install docker? (yes/no)" answer
-case $answer in
-yes|y|Y)
-      docker_installation
-      sleep 2
-;;
-*)
-      echo "Input wrong."
-      exit 1
-;;
+# read -p "Do you need to install docker? (yes/no)" answer
+# case $answer in
+# yes|y|Y)
+#       docker_installation
+#       sleep 2
+# ;;
+# *)
+#       echo "Input wrong."
+#       exit 1
+# ;;
+# esac
+
+# read -p "Do you need to install docker-compose? (yes/no)? " answer
+# case $answer in
+# yes|y|Y)
+#       docker_compose_installation
+#       jf_monitoring
+#       sleep 2
+# ;;
+# No|n|N)
+#       jf_monitoring
+# ;;
+# *)
+#       echo "Input wrong."
+#       exit 1
+# ;;
+# esac
+
+read -p "Do you need to install Docker? (yes/no): " docker_answer
+case $docker_answer in
+    yes|y|Y)
+        docker_installation
+        ;;
+    no|n|N)
+        ;;
+    *)
+        echo "Invalid input for Docker installation. Exiting."
+        exit 1
+        ;;
 esac
 
-read -p "Do you need to install docker-compose? (yes/no)? " answer
-case $answer in
-yes|y|Y)
-      docker_compose_installation
-      jf_monitoring
-      sleep 2
-;;
-No|n|N)
-      jf_monitoring
-;;
-*)
-      echo "Input wrong."
-      exit 1
-;;
+read -p "Do you need to install Docker Compose? (yes/no): " compose_answer
+case $compose_answer in
+    yes|y|Y)
+        docker_compose_installation
+        jf_monitoring
+        ;;
+    no|n|N)
+        jf_monitoring
+        ;;
+    *)
+        echo "Invalid input for Docker Compose installation. Exiting."
+        exit 1
+        ;;
 esac
