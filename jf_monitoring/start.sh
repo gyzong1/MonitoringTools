@@ -7,29 +7,54 @@ docker_installation(){
 echo -e "Home path: ${Jf_monitoring_Home}"
 echo -e "Install docker..."
 
-cd ${Jf_monitoring_Home}/init && chmod +x install-docker-ce.sh && ./install-docker-ce.sh docker-23.0.0.tgz && rm -rf docker
+# online
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum install docker-ce -y
+systemctl enable docker && systemctl start docker
+
+# offline
+# cd ${Jf_monitoring_Home}/init && chmod +x install-docker-ce.sh && ./install-docker-ce.sh docker-23.0.0.tgz && rm -rf docker
+
+}
+
+docker_compose_installation(){
+echo -e "Home path: ${Jf_monitoring_Home}"
+echo -e "Install docker-compose..."
+
+# online
+curl -L "https://github.com/docker/compose/releases/download/v2.38.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# offline
+# 
+
 }
 
 jf_monitoring(){
 cd ${Jf_monitoring_Home}
 
-read -p "Please written the local ip of this server, for example: 192.168.56.13 : " answer
+read -p "Please input the local ip of this server, for example: 192.168.56.13 : " answer
 localIp=$answer
 
-read -p "Please written Artifactory node ip, for example: 192.168.56.14 192.168.56.13 :" answer
+read -p "Please input Artifactory node ip, for example: 192.168.56.14 :" answer
 ip=($answer)
-num=${#ip[*]}
-for j in $(seq 0 $num);
-do
-  eval ip"$j"=${ip[${j}]}
-done
+# ip=($answer)
+# num=${#ip[*]}
+# for j in $(seq 0 $num);
+# do
+#   eval ip"$j"=${ip[${j}]}
+# done
 
-read -p "Please written Artifactory Credentials(Identity Token), 'admin'--'Edit Profile'--'Generate an Identity Token' :" answer
+read -p "Please written Artifactory Credentials(Identity Token), 'Admin'--'Edit Profile'--'Generate an Identity Token' :" answer
 Credentials=$answer
 
 echo -e  "Install jf_monitoring..."
-docker load -i init/images/prometheus-v2.53.4.tar
-docker load -i init/images/grafana-11.6.0.tar
+
+## offline
+# docker load -i init/images/prometheus-v2.53.4.tar
+# docker load -i /root/blackbox-exporter-v0.26.0.tar 
+# docker load -i init/images/grafana-11.6.0.tar
 
 cat > prometheus/config/prometheus.yml << EOF
 global:
@@ -44,12 +69,12 @@ scrape_configs:
   - job_name: 'node-monitor'
     scrape_interval: 5s
     static_configs:
-      - targets: ['$ip0:9100', '$ip1:9100', '$ip2:9100', '$ip3:9100', '$ip4:9100', '$ip5:9100', '$ip6:9100']
+      - targets: ['$ip:9100']
 
   - job_name: 'jvm-monitor'
     scrape_interval: 5s
     static_configs:
-      - targets: ['$ip0:30013', '$ip1:30013', '$ip2:30013', '$ip3:30013', '$ip4:30013', '$ip5:30013','$ip6:30013']
+      - targets: ['$ip:30013']
 
   - job_name: 'artifactory-monitor'
     scrape_interval: 5s
@@ -57,7 +82,7 @@ scrape_configs:
       credentials: $Credentials
     metrics_path: '/artifactory/api/v1/metrics'
     static_configs:
-      - targets: ['$ip0:8082']
+      - targets: ['$ip:8082']
 
   - job_name: "blackbox_telnet_port"
     scrape_interval: 5s
@@ -65,7 +90,7 @@ scrape_configs:
     params:
       module: [tcp_connect]
     static_configs:
-      - targets: [ '$ip0:8082' ]
+      - targets: [ '$ip:8082' ]
         labels:
           group: 'artifactory'
     relabel_configs:
@@ -74,7 +99,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: $ip0:9115
+        replacement: $ip:9115
 
   - job_name: 'http-blackbox'
     metrics_path: /probe
@@ -82,18 +107,18 @@ scrape_configs:
       module: [http_2xx]  # Look for a HTTP 200 response.
     static_configs:
       - targets:
-        - https://$ip0:8082/artifactory/api/system/ping
+        - https://$ip:8082/artifactory/api/system/ping
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: $ip0:9115  # The blackbox exporter's real hostname:port.
+        replacement: $ip:9115  # The blackbox exporter's real hostname:port.
 
   - job_name: 'tcp_8081_exporter'
     static_configs:
-      - targets: ['192.168.56.13:8000']
+      - targets: ['$ip::8000']
 EOF
 
 
@@ -112,10 +137,22 @@ echo -e "\033[33;1mGrafana's url: \033[32;1mhttp://${localIp}:3000\033[0m"
 echo -e "\033[33;1mGrafana's account/password: \033[32;1madmin/admin\033[0m"
 }
 
-read -p "Do you need to install docker and docker-compose? default(y/yes), change(n/no)? " answer
+read -p "Do you need to install docker? (yes/no)" answer
 case $answer in
 yes|y|Y)
       docker_installation
+      sleep 2
+;;
+*)
+      echo "Input wrong."
+      exit 1
+;;
+esac
+
+read -p "Do you need to install docker-compose? (yes/no)? " answer
+case $answer in
+yes|y|Y)
+      docker_compose_installation
       jf_monitoring
       sleep 2
 ;;
