@@ -47,7 +47,7 @@ vim $ARTIFACTORY_HOME/var/etc/system.yaml
 添加客户端配置:
 ```bash
 shared:
-   extraJavaOpts: "-Xms512m -Xmx4g -javaagent:/opt/jf_monitoring_node/jmx_prometheus_javaagent-0.17.2.jar=30013:/opt/jf_monitoring_node/jmx_config.yaml
+   extraJavaOpts: "-Xms512m -Xmx4g -javaagent:/opt/jf_monitoring_node/jmx_prometheus_javaagent-0.17.2.jar=30013:/opt/jf_monitoring_node/jmx_config.yaml"
 ```
 重启 Artifactory:
 ```bash
