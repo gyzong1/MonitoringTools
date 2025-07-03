@@ -1,5 +1,9 @@
 # JFrog Artifactory 监控
 ## 客户端配置（在所有Artifactory节点上）
+创建安装目录:
+```bash
+mkdir /opt/jf_monitoring_node/ && cd /opt/jf_monitoring_node/
+```
 下载 node_exporter:
 ```bash
 # amd64
@@ -9,8 +13,12 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_e
 ```
 解压并启动 node_exporter(amd64为例):
 ```bash
-$ tar zxf jf_monitoring_node.tgz && cd jf_monitoring_node && tar zxf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64
+$ tar zxf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64
 $ nohup ./node_exporter &
+```
+测试访问:
+```bash
+curl http://127.0.0.1:9100/metrics
 ```
 配置Artifactory（路径根据实际目录填写）
 编辑 artifactory.default:
