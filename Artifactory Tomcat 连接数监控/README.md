@@ -15,3 +15,11 @@ CONFIG = {
 ...
 }
 ```
+运行:
+```bash
+nohup python3 tomcat_threads_exporter.py &
+```
+查看是否展示数据:
+```bash
+[curl ](http://198.19.249.230:8000/metrics)
+```
