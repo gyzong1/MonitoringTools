@@ -60,6 +60,10 @@ curl http://198.19.249.230:30013/metrics
 
 
 ## 服务端配置（任意一台空闲服务器）
+下载 jf_monitoring.tgz:
+```bash
+wget 
+```
 解压 jf_monitoring.tgz:
 ```bash
 tar zxf jf_monitoring.tgz && cd jf_monitoring && chmod +x start.sh
