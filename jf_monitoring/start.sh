@@ -56,7 +56,8 @@ echo -e  "Install jf_monitoring..."
 # docker load -i /root/blackbox-exporter-v0.26.0.tar 
 # docker load -i init/images/grafana-11.6.0.tar
 
-cat > prometheus/config/prometheus.yml << EOF
+touch ./prometheus/config/prometheus.yml
+cat > ./prometheus/config/prometheus.yml << EOF
 global:
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
   external_labels:
