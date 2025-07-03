@@ -1,6 +1,13 @@
 # JFrog Artifactory 监控
 ## 客户端配置（在所有Artifactory节点上）
-解压并启动 node_exporter:
+下载 node_exporter:
+```bash
+# amd64
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+# arm64
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-arm64.tar.gz
+```
+解压并启动 node_exporter(amd64为例):
 ```bash
 $ tar zxf jf_monitoring_node.tgz && cd jf_monitoring_node && tar zxf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64
 $ nohup ./node_exporter &
