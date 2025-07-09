@@ -48,4 +48,8 @@ scrape_configs:
     static_configs:
       - targets: ['198.19.249.230:30013']
 ```
+
+### 上传 dashboard:
+Dashboards|New dashboard
 <img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/46d0406db252c16e87bebc5db3524ac9d4dae616/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png">
+
