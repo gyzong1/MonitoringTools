@@ -129,7 +129,6 @@ Dashboard | New | New dashboard | Import a dashboard，添加 "Artifactory Dashb
 
 监控截图:
 Artifactory:
-<img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png">
 ![image](https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png)
 
 JVM:
