@@ -125,7 +125,7 @@ Please written Artifactory Credentials(Identity Token), 'admin'--'Edit Profile'-
 **Connections** | **Data sources** | **Add new data source** | 选择 **Prometheus** | 填入 **Prometheus server URL**, 如: http://198.19.249.230:9090
 
 ### 添加 Grafana dashboard:
-Dashboard | New | New dashboard | Import a dashboard，添加 "Artifactory Dashboard-latest.json", "JVM Dashboard-latest.json", "Node Exporter Full-latest.json"(已添加请忽略).
+**Dashboard** | **New** | **New dashboard** | **Import a dashboard**，添加 "Artifactory Dashboard-latest.json", "JVM Dashboard-latest.json", "Node Exporter Full-latest.json"(已添加请忽略).
 
 监控截图:
 Artifactory:
