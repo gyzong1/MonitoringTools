@@ -135,7 +135,7 @@ JVM:
 ![image](https://github.com/gyzong1/MonitoringTools/blob/286f1389a1a9f5456cd8fdb0798b4e38ecde2646/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png)
 
 Node:
-![image](https://github.com/user-attachments/assets/6a377737-a106-46cc-badb-b38be23f3b60)
+![image](https://github.com/gyzong1/MonitoringTools/blob/8ca8313d326815f2b39c7236f963221427994e01/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Node_dashboard.png)
 
 
 
