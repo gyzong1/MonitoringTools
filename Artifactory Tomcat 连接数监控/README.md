@@ -23,3 +23,24 @@ nohup python3 tomcat_threads_exporter.py &
 ```bash
 curl http://127.0.0.1:8000/metrics
 ```
+### Prometheus 配置添加:
+编辑 prometheus.yml:
+```bash
+vim MonitoringTools/jf_monitoring/prometheus/config/prometheus.yml
+```
+添加以下配置:
+```bash
+scrape_configs:
+  - job_name: 'tcp_8081_exporter'
+    static_configs:
+      - targets: ['198.19.249.230:8000']
+```
+重启 Prometheus:
+```bash
+docker restart prometheus
+```
+
+### 上传 dashboard:
+Dashboards|New dashboard, 上传 "Artifactory Dashboard-latest.json":
+<img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/46d0406db252c16e87bebc5db3524ac9d4dae616/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png">
+
