@@ -34,3 +34,17 @@ systemctl restart artifactory
 ```bash
 curl http://198.19.249.230:30013/metrics
 ```
+
+### Prometheus 配置添加:
+编辑 prometheus.yml:
+```bash
+vim MonitoringTools/jf_monitoring/prometheus/config/prometheus.yml
+```
+添加以下配置:
+```bash
+scrape_configs:
+  - job_name: 'jvm-monitor'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['198.19.249.230:30013']
+```
