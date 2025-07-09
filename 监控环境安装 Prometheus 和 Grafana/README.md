@@ -19,7 +19,7 @@ $ nohup ./node_exporter &
 ```
 测试:
 ```bash
-curl http://127.0.0.1:9100/metrics
+curl http://localhost:9100/metrics
 ```
 ### 部署 jmx_exporter
 下载 jmx_exporter:
@@ -40,7 +40,7 @@ rules:
 ```
 
 ### Artifactory 配置添加 jmx（路径根据实际目录填写）
-编辑 artifactory.default:
+编辑 system.yaml:
 ```bash
 vim $ARTIFACTORY_HOME/var/etc/system.yaml
 ```
@@ -55,7 +55,41 @@ systemctl restart artifactory
 ```
 测试:
 ```bash
-curl http://198.19.249.230:30013/metrics
+curl http://localhost:30013/metrics
+```
+
+### Artifactory 配置开启 metrics
+编辑 system.yaml:
+```bash
+vim $ARTIFACTORY_HOME/var/etc/system.yaml
+```
+添加配置:
+```bash
+artifactory:
+    metrics:
+        enabled: true
+access:
+    metrics:
+        enabled: true
+event:
+    metrics:
+        enabled: true
+
+integration:
+    metrics:
+        enabled: true
+
+observability:
+    metrics:
+        enabled: true
+```
+重启 Artifactory:
+```bash
+systemctl restart artifactory
+```
+测试:
+```bash
+curl -uadmin:password http://localhost:8082/artifactory/api/v1/metrics
 ```
 
 
