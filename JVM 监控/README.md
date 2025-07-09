@@ -50,6 +50,6 @@ scrape_configs:
 ```
 
 ### 上传 dashboard:
-Dashboards|New dashboard
+Dashboards|New dashboard, 上传 "JVM Dashboard-latest.json":
 <img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/46d0406db252c16e87bebc5db3524ac9d4dae616/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png">
 
