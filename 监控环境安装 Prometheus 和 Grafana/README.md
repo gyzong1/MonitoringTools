@@ -120,6 +120,10 @@ Please write the Artifactory node IP, [for example 192.168.56.14]: 192.168.56.14
 Please written Artifactory Credentials(Identity Token), 'admin'--'Edit Profile'--'Generate an Identity Token' : <token>
 ```
 ![image](https://github.com/user-attachments/assets/10e2e560-770e-4240-9584-6e7f4dcb493f)
+访问 Grafana, 添加 Prometheus 源:  
+**Connections** | **Data sources** | **Add new data source** | 选择 **Prometheus** | 填入 **Prometheus server URL**, 如: http://198.19.249.230:9090
+
+
 
 监控截图:
 Artifactory:
