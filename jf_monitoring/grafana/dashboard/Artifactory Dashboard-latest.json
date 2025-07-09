@@ -42,7 +42,6 @@
     },
     {
       "datasource": {
-        "uid": "ceqtnxlynlc74c"
       },
       "fieldConfig": {
         "defaults": {
@@ -132,8 +131,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -213,8 +211,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Busy state of all CPU cores together",
       "fieldConfig": {
@@ -299,8 +296,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Busy state of all CPU cores together (5 min average)",
       "fieldConfig": {
@@ -385,8 +381,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Busy state of all CPU cores together (15 min average)",
       "fieldConfig": {
@@ -470,8 +465,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Non available RAM memory",
       "fieldConfig": {
@@ -561,8 +555,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "System uptime",
       "fieldConfig": {
@@ -643,8 +636,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Total number of CPU cores",
       "fieldConfig": {
@@ -726,8 +718,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Total RAM",
       "fieldConfig": {
@@ -808,8 +799,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Total RootFS",
       "fieldConfig": {
@@ -896,8 +886,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1031,8 +1020,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Basic memory usage",
       "fieldConfig": {
@@ -1561,8 +1549,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "Disk space used of all filesystems mounted",
       "fieldConfig": {
@@ -1665,8 +1652,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -1803,8 +1789,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "ceqtnxlynlc74c"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -2680,8 +2665,7 @@
     "list": [
       {
         "current": {
-          "text": "prometheus",
-          "value": "ceqtnxlynlc74c"
+          "text": "prometheus"
         },
         "includeAll": false,
         "name": "datasource",
@@ -2697,8 +2681,7 @@
           "value": "artifactory-monitor"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "ceqtnxlynlc74c"
+          "type": "prometheus"
         },
         "definition": "label_values(jfrt_artifacts_gc_next_run_seconds,job)",
         "includeAll": false,
@@ -2804,8 +2787,7 @@
           "value": "node-monitor"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "ceqtnxlynlc74c"
+          "type": "prometheus"
         },
         "definition": "label_values(node_uname_info,job)",
         "label": "node_job",
