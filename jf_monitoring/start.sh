@@ -108,7 +108,7 @@ scrape_configs:
       module: [http_2xx]  # Look for a HTTP 200 response.
     static_configs:
       - targets:
-        - https://$ip:8082/artifactory/api/system/ping
+        - http://$ip:8082/artifactory/api/system/ping
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
