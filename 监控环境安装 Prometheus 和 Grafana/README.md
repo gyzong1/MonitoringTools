@@ -125,12 +125,12 @@ Please written Artifactory Credentials(Identity Token), 'admin'--'Edit Profile'-
 **Connections** | **Data sources** | **Add new data source** | 选择 **Prometheus** | 填入 **Prometheus server URL**, 如: http://198.19.249.230:9090
 
 ### 添加 Grafana dashboard:
-Dashboard | New | New dashboard | Import a dashboard，添加 "Artifactory Dashboard-latest.json"(已添加请忽略).
-<img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png">
+Dashboard | New | New dashboard | Import a dashboard，添加 "Artifactory Dashboard-latest.json", "JVM Dashboard-latest.json", "Node Exporter Full-latest.json"(已添加请忽略).
 
 监控截图:
 Artifactory:
-![image](https://github.com/user-attachments/assets/db5f71d8-5e22-4ddd-b23a-280d7bf2af55)
+<img width="1751" alt="image" src="https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png">
+![image](https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png)
 
 JVM:
 ![image](https://github.com/user-attachments/assets/c1ce1c7f-2c04-46a9-b922-71f5d5ad87af)
