@@ -132,7 +132,7 @@ Artifactory:
 ![image](https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png)
 
 JVM:
-![image](https://github.com/user-attachments/assets/c1ce1c7f-2c04-46a9-b922-71f5d5ad87af)
+![image](https://github.com/gyzong1/MonitoringTools/blob/286f1389a1a9f5456cd8fdb0798b4e38ecde2646/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png)
 
 Node:
 ![image](https://github.com/user-attachments/assets/6a377737-a106-46cc-badb-b38be23f3b60)
