@@ -126,6 +126,12 @@ EOF
 chmod -R 777 ${Jf_monitoring_Home}/prometheus/data ${Jf_monitoring_Home}/grafana/data
 docker-compose up -d
 
+if [ $? -ne 0 ]; then
+    echo "❌ docker-compose up -d 执行失败"
+    exit 1  # 退出并返回错误码
+fi
+echo "✅ docker-compose up -d 执行成功"
+
 curl -X POST -H "Content-Type: application/json" "http://admin:admin@${localIp}:3000/api/datasources" -d '{"name":"Prometheus","type":"prometheus","typeLogoUrl":"","access":"proxy","url":"http://'${localIp}':9090","user":"","database":"","basicAuth":false,"basicAuthUser":"","withCredentials":false,"isDefault":true,"jsonData":{"httpMethod":"POST"},"secureJsonFields":{},"version":2,"readOnly":false}' > /dev/null 2>&1
 
 sleep 1
