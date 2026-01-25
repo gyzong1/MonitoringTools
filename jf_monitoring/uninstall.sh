@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # 遇到错误立即退出
+set -e  # 遇到错误立即退出 
 
 Jf_monitoring_Home=$(pwd)
 
