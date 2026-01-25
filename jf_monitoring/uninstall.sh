@@ -18,8 +18,8 @@ uninstall_jf_monitoring() {
     cd "${Jf_monitoring_Home}" || exit 1
     
     # 检查目录是否存在，不存在则创建
-    if [ ! -d "${backup_dir}" ]; then
-        mkdir -p "${backup_dir}"
+    if [ ! -d "${backup_dir}/backup_${date_backup}" ]; then
+        mkdir -p "${backup_dir}/backup_${date_backup}"
     fi
     
     # 停止容器
@@ -27,7 +27,7 @@ uninstall_jf_monitoring() {
     sleep 1
     
     # 移动文件到备份目录
-    mv grafana blackbox-config prometheus "${backup_dir}/backup_${date_backup}/"
+    /usr/bin/mv grafana blackbox-config prometheus installation.log "${backup_dir}/backup_${date_backup}/"
     
     # 确认备份成功
     if [ $? -eq 0 ]; then
