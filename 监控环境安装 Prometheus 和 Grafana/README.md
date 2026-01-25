@@ -98,14 +98,10 @@ curl -uadmin:password http://localhost:8082/artifactory/api/v1/metrics
 ```bash
 mkdir /opt/jf_monitoring/ && cd /opt/jf_monitoring/
 ```
-下载 jf_monitoring.tgz:
+下载 jf_monitoring:
 ```bash
 git clone https://github.com/gyzong1/MonitoringTools.git
-```
-解压 jf_monitoring.tgz:
-```bash
-cd /opt/jf_monitoring/MonitoringTools/packages/
-tar zxf jf_monitoring.tgz && cd jf_monitoring && chmod +x start.sh
+cd /opt/jf_monitoring/MonitoringTools/jf_monitoring/ && chmod +x start.sh
 ```
 安装 jf_monitoring:
 ```bash
