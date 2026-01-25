@@ -8,13 +8,13 @@ mkdir /opt/jf_monitoring_node/ && cd /opt/jf_monitoring_node/
 下载 node_exporter:
 ```bash
 # amd64
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-amd64.tar.gz
 # arm64
-wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-arm64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.10.2/node_exporter-1.10.2.linux-arm64.tar.gz
 ```
 解压并启动 node_exporter(amd64为例):
 ```bash
-$ tar zxf node_exporter-1.9.1.linux-amd64.tar.gz && cd node_exporter-1.9.1.linux-amd64
+$ tar zxf node_exporter-1.10.2.linux-amd64.tar.gz && cd node_exporter-1.10.2.linux-amd64
 $ nohup ./node_exporter &
 ```
 测试:
@@ -25,7 +25,7 @@ curl http://localhost:9100/metrics
 下载 jmx_exporter:
 ```bash
 cd /opt/jf_monitoring_node/
-wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.17.2/jmx_prometheus_javaagent-0.17.2.jar
+wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar
 ```
 创建 jmx_exporter 配置:
 ```bash
@@ -47,7 +47,7 @@ vim $ARTIFACTORY_HOME/var/etc/system.yaml
 添加客户端配置:
 ```bash
 shared:
-    extraJavaOpts: "-Xms512m -Xmx4g -javaagent:/opt/jf_monitoring_node/jmx_prometheus_javaagent-0.17.2.jar=30013:/opt/jf_monitoring_node/jmx_config.yaml"
+    extraJavaOpts: "-Xms512m -Xmx4g -javaagent:/opt/jf_monitoring_node/jmx_prometheus_javaagent-1.0.1.jar=30013:/opt/jf_monitoring_node/jmx_config.yaml"
 ```
 重启 Artifactory:
 ```bash
