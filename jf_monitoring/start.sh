@@ -100,7 +100,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: $ip:9115
+        replacement: $localIp:9115
 
   - job_name: 'http-blackbox'
     metrics_path: /probe
@@ -115,7 +115,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: $ip:9115  # The blackbox exporter's real hostname:port.
+        replacement: $localIp:9115  # The blackbox exporter's real hostname:port.
 
   - job_name: 'tcp_8081_exporter'
     static_configs:

@@ -1,4 +1,4 @@
-# JFrog Artifactory 监控  
+# JFrog Artifactory 监控 
 ## 包括以下部分:
 - 基础环境安装 Prometheus & Grafana
 - Nodes 基础监控
