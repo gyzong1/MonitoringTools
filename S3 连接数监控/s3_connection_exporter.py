@@ -4,7 +4,7 @@
 使用:
 pip3 install prometheus-client
 chmod +x s3_connection_exporter.py
-nohup python3 ./s3_connection_exporter.py &
+nohup python3 s3_connection_exporter.py &
 '''
 
 import subprocess

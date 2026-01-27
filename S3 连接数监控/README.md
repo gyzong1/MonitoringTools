@@ -4,7 +4,7 @@
 ```bash
 yum install -y python3 python3-pip
 ```
-安装 s3_connection_exporter.py 需要的模块:
+安装 s3_connection_exporter.py 所需模块:
 ```bash
 pip3 install prometheus_client
 ```

@@ -3,7 +3,7 @@
 '''
 由监控一个端口增加到了可以多个端口, 使用:
 pip3 install prometheus_client
-python3 tomcat_threads_monitoring_v2.py
+python3 artifactory_tcp_exporter.py
 '''
 
 from prometheus_client import start_http_server, Gauge
