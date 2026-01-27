@@ -1,10 +1,10 @@
 
-## tomcat_threads_exporter 安装（在所有Artifactory节点上）
+## s3_connection_exporter 安装（在所有Artifactory节点上）
 安装 python3 (如已安装请跳过):
 ```bash
 yum install -y python3 python3-pip
 ```
-安装 s3_connection_metrics.py 需要的模块:
+安装 s3_connection_exporter.py 需要的模块:
 ```bash
 pip3 install prometheus_client
 ```
@@ -30,11 +30,11 @@ pip3 install prometheus_client
   <appender-ref ref="connectionpool"/>
 </logger>
 ```
-下载 s3_connection_metrics.py 脚本至本地目录, 如:
+下载 s3_connection_exporter.py 脚本至本地目录, 如:
 ```
 mkdir /opt/jf_monitoring_node/ && cd /opt/jf_monitoring_node/
 ```
-根据实际路径修改 s3_connection_metrics.py 以下日志路径部分:
+根据实际路径修改 s3_connection_exporter.py 以下日志路径部分:
 ```python
 LOG_FILE_PATH = '/var/opt/jfrog/artifactory/log/artifactory-connectionpool.log'
 ```
@@ -66,4 +66,4 @@ docker restart prometheus
 
 ### 上传 dashboard:
 **Dashboards** | **New dashboard**, 上传 "Artifactory Dashboard-latest.json":
-![S3 Connections](./images/s3_connections.png)
+<img src="./images/s3_connections.png" alt="S3 Connections" width="1751"/>
