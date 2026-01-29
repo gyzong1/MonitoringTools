@@ -9,3 +9,5 @@ LOG_FILE = '/var/opt/jfrog/artifactory/log/artifactory-request.log'
 ```bash
 nohup python3 artifactory_request_exporter.py &
 ```
+Dashboard:
+<img src="./images/artifactory_request_exporter.png" alt="Artifactory Request" width="1751"/>
