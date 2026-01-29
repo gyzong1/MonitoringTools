@@ -4,10 +4,6 @@
 ```bash
 yum install -y python3 python3-pip
 ```
-安装 s3_connection_exporter.py 所需模块:
-```bash
-pip3 install prometheus_client
-```
 开启 Artifactory S3 connection debug 日志, 修改 $ARTIFACTORY_HOME/var/etc/artifactory/logback.xml, 在倒数第二行添加以下部分(最后一行 </configuration> 上面一行),无需重启 Artifactory:
 ```xml
 <appender name="connectionpool" class="ch.qos.logback.core.rolling.RollingFileAppender">
