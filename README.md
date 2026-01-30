@@ -3,10 +3,11 @@
 - 基础环境安装 Prometheus & Grafana
 - Artifactory Metrics 监控
 - Artifactory Tomcat 线程数监控
+- Artifactory S3 连接数监控
 - Artifactory Requests 监控
 - JVM 监控
 - Nodes 基础监控
-- S3 连接数监控
+
 
 ## 客户端配置（在所有Artifactory节点上）
 ### 部署 node_exporter
