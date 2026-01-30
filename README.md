@@ -1,6 +1,6 @@
 # JFrog Artifactory 监控 
 ## 包括以下部分:
-- 一键安装基础环境 Prometheus & Grafana
+- 基础环境安装 Prometheus & Grafana
 - Artifactory Metrics 监控
 - Artifactory Tomcat 线程数监控
 - Artifactory Requests 监控
