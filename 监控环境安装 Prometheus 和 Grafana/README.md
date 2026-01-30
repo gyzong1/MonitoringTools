@@ -124,8 +124,14 @@ Please written Artifactory Credentials(Identity Token), 'admin'--'Edit Profile'-
 **Dashboard** | **New** | **New dashboard** | **Import a dashboard**，添加 "Artifactory Dashboard-latest.json", "JVM Dashboard-latest.json", "Node Exporter Full-latest.json"(已添加请忽略).
 
 监控截图:  
-Artifactory:
-![image](https://github.com/gyzong1/MonitoringTools/blob/5e588cc5ae44b1d192a4f049a92a17a9d500af46/%E7%9B%91%E6%8E%A7%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%20Prometheus%20%E5%92%8C%20Grafana/images/Artifactory%20dashboard.png)
+Artifactory Basic Information:
+<img src="./images/Basic_information.png" alt="S3 Connections" width="1751"/>
+
+Artifactory Connections:
+<img src="./images/Artifactory_connections.png" alt="S3 Connections" width="1751"/>
+
+Artifactory Requests:
+<img src="./images/Artifactory_requests.png" alt="S3 Connections" width="1751"/>
 
 JVM:
 ![image](https://github.com/gyzong1/MonitoringTools/blob/286f1389a1a9f5456cd8fdb0798b4e38ecde2646/JVM%20%E7%9B%91%E6%8E%A7/images/jvm_dashboard.png)
