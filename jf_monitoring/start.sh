@@ -1,7 +1,7 @@
 #!/bin/bash
 # JF Monitoring Environment Installation
 
-set -euo pipefail  # 更严格的错误处理
+set -euo pipefail  # 严格的错误处理
 
 readonly JF_MONITORING_HOME="$(pwd)"
 readonly LOG_FILE="${JF_MONITORING_HOME}/installation.log"
@@ -12,7 +12,7 @@ readonly BLUE='\033[0;34m'
 readonly NC='\033[0m' # No Color
 
 # ============================================
-# Docker 镜像版本配置（方便后期修改）
+# Docker 镜像版本配置
 # ============================================
 readonly PROMETHEUS_IMAGE="prom/prometheus:v2.53.4"
 readonly BLACKBOX_EXPORTER_IMAGE="prom/blackbox-exporter:v0.26.0"
@@ -308,6 +308,21 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: ${local_ip}:9115
+
+  - job_name: 'artifactory_s3_connections'
+    static_configs:
+      - targets: ['${artifactory_ip}:8001']
+    scrape_interval: 5s
+
+  - job_name: 'tcp_8081_exporter'
+    static_configs:
+      - targets: ['${artifactory_ip}:8000']
+    scrape_interval: 5s
+
+  - job_name: 'artifactory_request_exporter'
+    static_configs:
+      - targets: ['${artifactory_ip}:8002']
+    scrape_interval: 5s
 EOF
     
     success "Prometheus configuration generated at $config_file"
